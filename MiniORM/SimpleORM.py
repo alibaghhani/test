@@ -183,7 +183,7 @@ class Database:
 
 def main():
     logging.basicConfig(level=logging.DEBUG)
-    db = Database("postgres", "pedramkarimi", "pedramkarimi", "localhost", "5432")
+    db = Database("postgres", "pedram", "pedram@karimi", "127.0.0.1", "5432")
     db.connect()
     db.create_table_query()
 

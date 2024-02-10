@@ -6,15 +6,15 @@ from SimpleORM import *
 class TestDatabase(unittest.TestCase):
 
     def setUp(self):
-        self.db = Database("postgres", "pedramkarimi",
-                            "pedramkarimi", "localhost", "5432") # noqa
+        self.db = Database("postgres", "pedram",
+                            "pedram@karimi", "127.0.0.1", "5432")
 
     def test_connect(self):
         mock_connect = MagicMock()
         psycopg2.connect = mock_connect
         self.db.connect()
-        mock_connect.assert_called_once_with(database="postgres", user="pedramkarimi",
-                                             password="pedramkarimi", host="localhost", port="5432")
+        mock_connect.assert_called_once_with(database="postgres", user="pedram",
+                                             password="pedram@karimi", host="127.0.0.1", port="5432")
 
     def test_disconnect(self):
         self.db.connection = MagicMock()
